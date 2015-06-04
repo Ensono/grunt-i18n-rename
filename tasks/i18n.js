@@ -22,14 +22,14 @@ module.exports = function(grunt) {
       throw new Error('i18n: locales must contain at least one value');
 
     grunt.task.run(config.task);
-    var root = config.root || '';
+    var root = config.root || '.';
     var task = config.task;
     config.locales.forEach(function(locale) {
       var preName = 'i18n-' + locale + '-pre';
       var postName = 'i18n-' + locale + '-post';
       if (!grunt.task.exists(preName)) {
         grunt.registerTask(preName, 'copied the files over', function() {
-          var results = grunt.file.expand(root + '**/*.' + locale + '.*');
+          var results = grunt.file.expand(root + '/**/*.' + locale + '.*');
           results.forEach(function (localeFilePath) {
             var defaultFilePath = localeFilePath.replace('.' + locale + '.js', '.js');
             var backupFileName = localeFilePath.replace('.' + locale + '.js', '-old.js');
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
 
       if (!grunt.task.exists(postName)) {
         grunt.registerTask(postName, 'copied the files over', function() {
-          var results = grunt.file.expand(root + '**/*-old.*');
+          var results = grunt.file.expand(root + '/**/*-old.*');
           results.forEach(function(backupFilePath) {
             var defaultFilePath = backupFilePath.replace('-old.js', '.js');
             var localeFilePath = defaultFilePath.replace('.js', '.' + locale + '.js');

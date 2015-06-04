@@ -1,7 +1,7 @@
 {
   "name": "grunt-i18n-rename",
   "description": "Browserify centric plugin that allows multiple builds, rename files with known extensions in order to provide internationalised single page apps",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/amido/grunt-i18n-rename",
   "author": {
     "name": "Antony Koch",
