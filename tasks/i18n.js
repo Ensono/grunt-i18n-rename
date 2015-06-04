@@ -14,8 +14,13 @@ module.exports = function(grunt) {
   // creation: http://gruntjs.com/creating-tasks
 
   grunt.registerTask('i18n', 'Browserify centric plugin that allows multiple builds, rename files with known extensions in order to provide internationalised single page apps', function() {
-    console.log('hello');
     var config = grunt.config.get('i18n');
+    if (!config.task)
+      throw new Error('i18n: task must be supplied');
+
+    if (!config.locales.length)
+      throw new Error('i18n: locales must contain at least one value');
+
     grunt.task.run(config.task);
     var root = config.root || '';
     var task = config.task;
