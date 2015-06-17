@@ -53,6 +53,7 @@ What task to run for each language. The language will be appended to the task, s
 ### Usage Examples
 
 This will:
+
 1. Run the build task
 2. Rename all `.de.js` files found recursively in the `lib` directory to `.js`, renaming the existing file to `-old.js`
 3. Run the `build:de` task. This allows you to have multiple outputs
