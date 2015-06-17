@@ -1,5 +1,7 @@
 # grunt-i18n-rename
 
+[![NPM](https://nodei.co/npm/grunt-i18n-rename.png?downloads=true&stars=true)](https://nodei.co/npm/grunt-i18n-rename/) 
+
 > Browserify centric plugin that allows multiple builds, rename files with known extensions in order to provide internationalised single page apps
 
 ## Getting Started
