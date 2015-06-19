@@ -77,3 +77,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 ## Release History
 0.1.0 Initial release
 0.1.3 Update for nested files
+0.1.4 Update for non JS file types
