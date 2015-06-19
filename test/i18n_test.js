@@ -28,13 +28,19 @@ exports.i18n = {
     done();
   },
   all: function(test) {
-    test.expect(2);
+    test.expect(4);
 
-    var actual = grunt.file.read('test.bak/constants.js');
+    var actual = grunt.file.read('test/build/constants.js');
     test.equal(actual, '//default', 'should run for the default setting');
 
-    actual = grunt.file.read('test.de.bak/constants.js');
+    actual = grunt.file.read('test/build/de/constants.js');
     test.equal(actual, '//germany', 'should run for the locale');
+
+    var actual = grunt.file.read('test/build/styles.css');
+    test.equal(actual, '/* default */', 'should run for the default setting');
+
+    actual = grunt.file.read('test/build/de/styles.css');
+    test.equal(actual, '/* germany */', 'should run for the locale');
 
     test.done();
   }

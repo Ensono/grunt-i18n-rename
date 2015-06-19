@@ -37,12 +37,16 @@ module.exports = function(grunt) {
 
     copy: {
       main: {
-        src: 'test/constants.js',
-        dest: 'test.bak/constants.js'
+        expand: true,
+        flatten: true,
+        src: [ 'test/nested/folder/constants.js', 'test/nested/folder/styles.css' ],
+        dest: 'test/build'
       },
       de: {
-        src: 'test/constants.js',
-        dest: 'test.de.bak/constants.js'
+        expand: true,
+        flatten: true,
+        src: [ 'test/nested/folder/constants.js', 'test/nested/folder/styles.css' ],
+        dest: 'test/build/de/'
       }
     },
 

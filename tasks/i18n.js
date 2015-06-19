@@ -8,6 +8,8 @@
 
 'use strict';
 
+var path = require('path');
+
 module.exports = function(grunt) {
 
   // Please see the Grunt documentation for more information regarding task
@@ -31,8 +33,9 @@ module.exports = function(grunt) {
         grunt.registerTask(preName, 'copied the files over', function() {
           var results = grunt.file.expand(root + '/**/*.' + locale + '.*');
           results.forEach(function (localeFilePath) {
-            var defaultFilePath = localeFilePath.replace('.' + locale + '.js', '.js');
-            var backupFileName = localeFilePath.replace('.' + locale + '.js', '-old.js');
+            var ext = path.extname(localeFilePath),
+                defaultFilePath = localeFilePath.replace('.' + locale + ext, ext),
+                backupFileName = localeFilePath.replace('.' + locale + ext, '-old' + ext);
             grunt.file.copy(defaultFilePath, backupFileName);
             grunt.file.copy(localeFilePath, defaultFilePath);
           });
@@ -43,8 +46,9 @@ module.exports = function(grunt) {
         grunt.registerTask(postName, 'copied the files over', function() {
           var results = grunt.file.expand(root + '/**/*-old.*');
           results.forEach(function(backupFilePath) {
-            var defaultFilePath = backupFilePath.replace('-old.js', '.js');
-            var localeFilePath = defaultFilePath.replace('.js', '.' + locale + '.js');
+            var ext = path.extname(backupFilePath),
+                defaultFilePath = backupFilePath.replace('-old' + ext, ext),
+                localeFilePath = defaultFilePath.replace(ext, '.' + locale + ext);
             grunt.file.copy(defaultFilePath, localeFilePath);
             grunt.file.copy(backupFilePath, defaultFilePath);
 
