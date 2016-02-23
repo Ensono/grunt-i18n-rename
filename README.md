@@ -78,3 +78,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 0.1.0 Initial release
 0.1.3 Update for nested files
 0.1.4 Update for non JS file types
+0.1.5 Update for Grunt dependency
